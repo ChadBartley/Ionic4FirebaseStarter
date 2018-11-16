@@ -1,0 +1,19 @@
+<div *ngIf="authService.userDoc as user" >
+    
+  <button ion-button 
+          *ngIf="!user || !user?.uid" 
+          (tap)="googleLogin()"
+          (click)="googleLogin()">
+
+      Login with Google
+  </button>
+
+  <div *ngIf="user?.uid" >
+    You're already logged in with UID: {{ user?.uid }}
+
+    <ion-button (tap)="signOut()">
+      Signout
+    </ion-button>
+  </div>
+
+</div>
